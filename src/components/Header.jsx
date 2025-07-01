@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View,Pressable } from 'react-native'
 import { colors } from '../global/colors'
 import { useNavigation } from '@react-navigation/native'
-
+import Icon from 'react-native-vector-icons/Feather'
 
 
 
@@ -15,8 +15,8 @@ const Header = ({title,subtitle}) => {
       <Text style={styles.subtitle}>{subtitle}</Text>
       {
         canGoBack &&
-        <Pressable onPress={()=>navigation.goBack()}>
-          <Text>Volver</Text>
+        <Pressable style={styles.goBack} onPress={()=>navigation.goBack()}>
+          <Icon name="chevron-left" size={32} color={colors.white} />
         </Pressable>
       }
     </View>
@@ -40,5 +40,10 @@ const styles = StyleSheet.create({
     subtitle:{
       fontSize:16,
       color:colors.white,
+    },
+    goBack:{
+      position:"absolute",
+      bottom:100,
+      left:16
     }
 })

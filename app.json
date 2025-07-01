@@ -3,7 +3,6 @@
     "name": "mundogeek-74035",
     "slug": "mundogeek-74035",
     "version": "1.0.0",
-    "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
