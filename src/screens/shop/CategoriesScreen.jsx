@@ -1,11 +1,11 @@
 import { StyleSheet, Text, View, FlatList, Image, Pressable } from 'react-native'
-import categories from '../data/categories.json'
-import FlatCard from '../components/FlatCard'
-import TextKarlaRegular from '../components/TextKarlaRegular'
+import categories from '../../data/categories.json'
+import FlatCard from '../../components/FlatCard'
+import TextKarlaRegular from '../../components/TextKarlaRegular'
 
-const CategoriesScreen = ({setCategorySelected}) => {
+const CategoriesScreen = ({navigation}) => {
     const renderCategoryItem = ({ item }) => (
-        <Pressable onPress={()=>setCategorySelected(item.title)}>
+        <Pressable onPress={()=>navigation.navigate("Productos",{category:item.title})}>
             <FlatCard>
                 <View style={styles.categoryContainer}>
                     <TextKarlaRegular>{item.title}</TextKarlaRegular>
