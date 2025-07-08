@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 import categories from "../../data/categories.json"
 import products from "../../data/products.json"
 
@@ -14,7 +14,7 @@ const shopSlice = createSlice({
     reducers:{
         setCategorieSelected: (state,action)=>{
             state.categorySelected = action.payload
-            console.log(state.categorySelected)
+            console.log(current(state).categorySelected)
         },
         filterProducts: (state,action)=>{
             state.productsFilteredByCategory = products.filter(product=>product.category.toLowerCase()===state.categorySelected.toLowerCase())
