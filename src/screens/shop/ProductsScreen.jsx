@@ -5,6 +5,8 @@ import { colors } from '../../global/colors'
 import { useEffect, useState } from 'react'
 import Search from '../../components/Search'
 import { useSelector } from 'react-redux'
+import { useGetProductsByCategoryQuery } from '../../services/shop/shopApi'
+
 
 const ProductsScreen = ({ navigation }) => {
     const [productsFiltered, setProductsFiltered] = useState([])
@@ -13,7 +15,10 @@ const ProductsScreen = ({ navigation }) => {
     const products = useSelector(state=>state.shopReducer.products)
     const category = useSelector(state=>state.shopReducer.categorySelected)
 
-    const productsFilteredByCategory = useSelector(state=>state.shopReducer.productsFilteredByCategory)
+    //const productsFilteredByCategory = useSelector(state=>state.shopReducer.productsFilteredByCategory)
+
+    const {data: productsFilteredByCategory, isLoading, error} = useGetProductsByCategoryQuery(category.toLowerCase())
+    //console.log(productsFilteredByCategory)
 
     //console.log(route)
     //const { category } = route.params
@@ -30,7 +35,7 @@ const ProductsScreen = ({ navigation }) => {
         } else {
             setProductsFiltered(productsFilteredByCategory)
         }
-    }, [category, keyword])
+    }, [category, keyword,productsFilteredByCategory])
 
     const renderProductItem = ({ item }) => (
         <Pressable onPress={()=>navigation.navigate("Producto",{product:item})}>

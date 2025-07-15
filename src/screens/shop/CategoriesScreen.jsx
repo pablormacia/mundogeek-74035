@@ -3,20 +3,25 @@ import { StyleSheet, Text, View, FlatList, Image, Pressable } from 'react-native
 import FlatCard from '../../components/FlatCard'
 import TextKarlaRegular from '../../components/TextKarlaRegular'
 import { useSelector, useDispatch } from 'react-redux'
-import { setCategorieSelected,filterProducts } from '../../features/shop/shopSlice'
+import { setCategorieSelected, filterProducts } from '../../features/shop/shopSlice'
+import { useGetCategoriesQuery } from '../../services/shop/shopApi'
 
-const CategoriesScreen = ({navigation}) => {
+const CategoriesScreen = ({ navigation }) => {
 
-    const categories = useSelector(state=>state.shopReducer.categories)
+    //const categories = useSelector(state=>state.shopReducer.categories)
+
+    const { data: categories, isLoading, error } = useGetCategoriesQuery()
+    //console.log(isLoading,error)
+    //console.log(categories)
 
     const dispatch = useDispatch()
 
     const renderCategoryItem = ({ item }) => (
         <Pressable onPress={
-            ()=>{
+            () => {
                 dispatch(setCategorieSelected(item.title))
                 dispatch(filterProducts())
-                navigation.navigate("Productos") 
+                navigation.navigate("Productos")
             }}>
             <FlatCard>
                 <View style={styles.categoryContainer}>
