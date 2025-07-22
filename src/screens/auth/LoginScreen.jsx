@@ -21,7 +21,7 @@ const LoginScreen = ({ navigation, route }) => {
     //console.log(result)
     useEffect(()=>{
         if(result.status==="fulfilled"){
-            dispatch(setUser(result.data.email))
+            dispatch(setUser({email: result.data.email, localId: result.data.localId}))
         }
     },[result])
 

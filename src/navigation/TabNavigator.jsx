@@ -2,6 +2,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import ShopStackNavigator from './ShopStackNavigator';
 import CartStackNavigator from './CartStackNavigator';
 import OrdersStackNavigator from './OrdersStackNavigator';
+import ProfileStackNavigator from './ProfileStackNavigator';
 //Puedo utilizar acá también el barrel (index.js)
 import Icon from 'react-native-vector-icons/Feather'
 import { colors } from '../global/colors';
@@ -52,6 +53,13 @@ export default function TabNavigator() {
                 component={OrdersStackNavigator}
                 options={{
                     tabBarIcon: ({focused}) => <Icon name="tablet" size={24} color={focused?colors.darkGray:colors.mediumGray} />
+                }}
+            />
+            <Tab.Screen
+                name="Profile"
+                component={ProfileStackNavigator}
+                options={{
+                    tabBarIcon: ({focused}) => <Icon name="user" size={24} color={focused?colors.darkGray:colors.mediumGray} />
                 }}
             />
         </Tab.Navigator>

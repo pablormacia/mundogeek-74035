@@ -20,7 +20,7 @@ const cartSlice = createSlice({
             }
             state.updatedAt = new Date().toLocaleString();
             state.total = state.cartItems.reduce((acc, item) => acc + (item.price * item.quantity), 0);
-            console.log(current(state).cartItems)
+            //console.log(current(state).cartItems)
         },
         removeItems : (state,action)=>{
              state.cartItems= state.cartItems.filter(item=>item.id!==action.payload)
