@@ -19,6 +19,7 @@ const ProfileScreen = () => {
     const [location, setLocation] = useState(null)
     const [locationLoaded, setLocationLoaded] = useState(false)
     const [address, setAddress] = useState("")
+  
 
     const dispatch = useDispatch()
 

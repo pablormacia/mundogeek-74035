@@ -25,7 +25,8 @@
     "react-redux": "^9.2.0",
     "expo-image-picker": "~16.1.4",
     "expo-location": "~18.1.6",
-    "react-native-maps": "1.20.1"
+    "react-native-maps": "1.20.1",
+    "expo-sqlite": "~15.2.14"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

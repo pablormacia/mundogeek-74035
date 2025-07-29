@@ -16,7 +16,7 @@ export default function TabNavigator() {
     const [isLargeScreeen,setIsLargeScreen] = useState(null)
 
     const {width,height} = useWindowDimensions()
-    console.log(isLargeScreeen)
+    //console.log(isLargeScreeen)
 
     useEffect(()=>{
         if(width>height){
